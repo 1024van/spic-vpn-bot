@@ -1,6 +1,6 @@
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup, KeyboardButton
 from aiogram.utils.keyboard import ReplyKeyboardBuilder, InlineKeyboardBuilder
-from config import FREEKASSA_ENABLED, YOOKASSA_ENABLED
+from config import FREEKASSA_ENABLED, YOOKASSA_ENABLED, PRICES
 
 def main_menu(is_admin: bool = False):
     builder = ReplyKeyboardBuilder()
@@ -17,10 +17,13 @@ def main_menu(is_admin: bool = False):
 
 def subscription_plans():
     builder = InlineKeyboardBuilder()
-    builder.button(text="1 месяц - 299₽", callback_data="buy_1_month")
-    builder.button(text="3 месяца - 799₽", callback_data="buy_3_months")
-    builder.button(text="6 месяцев - 1499₽", callback_data="buy_6_months")
-    builder.button(text="12 месяцев - 2499₽", callback_data="buy_12_months")
+    
+    for plan_code, plan_data in PRICES.items():
+        label = plan_data["label"]
+        if plan_data.get("savings"):
+            label += f" | {plan_data['savings']}"
+        builder.button(text=label, callback_data=f"buy_{plan_code}")
+    
     builder.adjust(1)
     return builder.as_markup()
 

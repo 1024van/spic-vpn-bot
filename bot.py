@@ -4,6 +4,8 @@ import logging
 import os
 from aiogram import Bot, Dispatcher
 from aiogram.fsm.storage.memory import MemoryStorage
+from aiogram.enums import ParseMode
+from aiogram.client.default import DefaultBotProperties
 from config import BOT_TOKEN
 from handlers import start, purchase, admin
 
@@ -24,8 +26,11 @@ async def main():
         logger.error("BOT_TOKEN not set!")
         return
     
-    # Инициализация бота
-    bot = Bot(token=BOT_TOKEN, parse_mode="HTML")
+    # Инициализация бота с DefaultBotProperties (новый способ)
+    bot = Bot(
+        token=BOT_TOKEN,
+        default=DefaultBotProperties(parse_mode=ParseMode.HTML)
+    )
     storage = MemoryStorage()
     dp = Dispatcher(storage=storage)
     

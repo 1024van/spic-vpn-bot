@@ -25,16 +25,17 @@ class FreeKassaPayment:
     
     def create_payment_url(self, amount: float, order_id: str, description: str = "") -> str:
         """Создаёт URL для оплаты"""
+        # НЕ используем urllib.parse.quote — aiogram или FreeKassa сделают это сами
         params = {
             'm': self.merchant_id,
             'oa': amount,
             'o': order_id,
             's': self.generate_signature(amount, order_id),
-            'desc': urllib.parse.quote(description),
+            'desc': description,  # Без кодирования!
             'currency': 'RUB'
         }
         
-        query_string = urllib.parse.urlencode(params)
+        query_string = urllib.parse.urlencode(params, quote_via=urllib.parse.quote)
         return f"{self.base_url}?{query_string}"
 
 freekassa = FreeKassaPayment()
