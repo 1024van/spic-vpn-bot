@@ -64,3 +64,76 @@ Telegram: @spic_support
 MIT License — см. LICENSE
 SPIC — ваш защищённый интернет без границ.
 EOF
+plain
+Copy
+
+### 2. .gitignore
+
+```bash
+cat > /opt/vpn_bot/.gitignore << 'EOF'
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Logs
+*.log
+logs/
+log/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Bot specific
+bot.session
+*.session
+backups/
+
+# Keys and secrets
+*.pem
+*.key
+id_*
+!id_*.pub
+
+# Temporary files
+tmp/
+temp/
+.cache/
+EOF
