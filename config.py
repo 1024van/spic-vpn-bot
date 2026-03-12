@@ -1,3 +1,4 @@
+cat > /opt/vpn_bot/config.py << 'EOF'
 import os
 from dotenv import load_dotenv
 
@@ -22,22 +23,25 @@ CREDENTIALS_TOML = os.path.join(TRUSTTUNNEL_ENDPOINT_PATH, "credentials.toml")
 
 # Цены (в рублях)
 PRICES = {
-    "1_month": {"price": 299, "days": 30, "label": "1 месяц - 299₽"},
-    "3_months": {"price": 799, "days": 90, "label": "3 месяца - 799₽"},
-    "6_months": {"price": 1499, "days": 180, "label": "6 месяцев - 1499₽"},
-    "12_months": {"price": 2499, "days": 365, "label": "12 месяцев - 2499₽"}
+    "1_month": {"price": 299, "days": 30, "label": "1 месяц - 299₽", "freekassa_id": "1"},
+    "3_months": {"price": 799, "days": 90, "label": "3 месяца - 799₽", "freekassa_id": "2"},
+    "6_months": {"price": 1499, "days": 180, "label": "6 месяцев - 1499₽", "freekassa_id": "3"},
+    "12_months": {"price": 2499, "days": 365, "label": "12 месяцев - 2499₽", "freekassa_id": "4"}
 }
 
-# ЮMoney
-YOOMONEY_RECEIVER = "4100119484107963"
+# FreeKassa настройки (основной платёжный метод)
+FREEKASSA_ENABLED = os.getenv("FREEKASSA_ENABLED", "true").lower() == "true"
+FREEKASSA_MERCHANT_ID = os.getenv("FREEKASSA_MERCHANT_ID", "")
+FREEKASSA_SECRET1 = os.getenv("FREEKASSA_SECRET1", "")  # Для формирования подписи
+FREEKASSA_SECRET2 = os.getenv("FREEKASSA_SECRET2", "")  # Для проверки callback
 
-YOOMONEY_TARGETS = {
-    "1_month":  "Тариф 1 месяц",
-    "3_months": "Тариф 3 месяца",
-    "6_months": "Тариф 6 месяцев",
-    "12_months":"Тариф 12 месяцев",
-}
-# Если хочешь, можешь не дублировать цены, а брать из PRICES
+# ЮKassa (опционально, отключена по умолчанию)
+YOOKASSA_ENABLED = os.getenv("YOOKASSA_ENABLED", "false").lower() == "true"
+YOOKASSA_SHOP_ID = os.getenv("YOOKASSA_SHOP_ID", "")
+YOOKASSA_SECRET_KEY = os.getenv("YOOKASSA_SECRET_KEY", "")
+
+# ЮMoney (полностью отключена, но можно включить изменив код)
+YMONEY_ENABLED = False
 
 # Сервер (у нас пока один)
 VPN_SERVER = {
@@ -46,3 +50,4 @@ VPN_SERVER = {
     "domain": TRUSTTUNNEL_DOMAIN,
     "location": "EU"
 }
+EOF
