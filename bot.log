@@ -1,0 +1,247 @@
+2026-02-28 11:45:54,293 - __main__ - INFO - Bot started!
+2026-02-28 11:45:54,294 - aiogram.dispatcher - INFO - Start polling
+2026-02-28 11:45:57,672 - aiogram.dispatcher - INFO - Run polling for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-02-28 11:48:14,791 - aiogram.event - INFO - Update id=468475694 is handled. Duration 203 ms by bot id=7529222837
+2026-02-28 11:48:59,346 - aiogram.event - INFO - Update id=468475695 is handled. Duration 276 ms by bot id=7529222837
+2026-02-28 11:54:55,569 - aiogram.event - INFO - Update id=468475696 is handled. Duration 177 ms by bot id=7529222837
+2026-02-28 11:57:16,957 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2026-02-28 11:57:16,959 - aiogram.dispatcher - INFO - Polling stopped for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-02-28 11:57:16,959 - aiogram.dispatcher - INFO - Polling stopped
+2026-02-28 12:08:24,209 - __main__ - INFO - Bot started!
+2026-02-28 12:08:24,210 - aiogram.dispatcher - INFO - Start polling
+2026-02-28 12:08:24,388 - aiogram.dispatcher - INFO - Run polling for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-02-28 12:09:12,347 - aiogram.event - INFO - Update id=468475697 is handled. Duration 207 ms by bot id=7529222837
+2026-02-28 12:09:15,166 - aiogram.event - INFO - Update id=468475698 is handled. Duration 72 ms by bot id=7529222837
+2026-02-28 12:09:17,482 - aiogram.event - INFO - Update id=468475699 is handled. Duration 60 ms by bot id=7529222837
+2026-02-28 12:09:20,595 - aiogram.event - INFO - Update id=468475700 is handled. Duration 64 ms by bot id=7529222837
+2026-02-28 12:09:25,574 - aiogram.event - INFO - Update id=468475701 is handled. Duration 64 ms by bot id=7529222837
+2026-02-28 12:09:27,757 - aiogram.event - INFO - Update id=468475702 is handled. Duration 135 ms by bot id=7529222837
+2026-02-28 12:17:11,875 - aiogram.event - INFO - Update id=468475703 is handled. Duration 399 ms by bot id=7529222837
+2026-02-28 12:17:17,416 - aiogram.event - INFO - Update id=468475704 is handled. Duration 108 ms by bot id=7529222837
+2026-02-28 12:17:23,046 - aiogram.event - INFO - Update id=468475705 is handled. Duration 90 ms by bot id=7529222837
+2026-02-28 12:22:42,441 - aiogram.event - INFO - Update id=468475706 is handled. Duration 168 ms by bot id=7529222837
+2026-02-28 12:22:47,868 - aiogram.event - INFO - Update id=468475707 is handled. Duration 62 ms by bot id=7529222837
+2026-02-28 14:56:04,182 - aiogram.event - INFO - Update id=468475708 is handled. Duration 209 ms by bot id=7529222837
+2026-02-28 14:56:21,995 - aiogram.event - INFO - Update id=468475709 is handled. Duration 147 ms by bot id=7529222837
+2026-02-28 15:04:36,648 - aiogram.event - INFO - Update id=468475710 is handled. Duration 304 ms by bot id=7529222837
+2026-02-28 15:23:07,453 - aiogram.event - INFO - Update id=468475711 is handled. Duration 276 ms by bot id=7529222837
+2026-03-05 14:22:38,650 - __main__ - INFO - Bot started!
+2026-03-05 14:22:38,651 - aiogram.dispatcher - INFO - Start polling
+2026-03-05 14:22:38,854 - aiogram.dispatcher - INFO - Run polling for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-05 14:28:50,604 - aiogram.event - INFO - Update id=468475712 is handled. Duration 194 ms by bot id=7529222837
+2026-03-05 14:28:55,415 - aiogram.event - INFO - Update id=468475713 is handled. Duration 167 ms by bot id=7529222837
+2026-03-05 14:29:01,845 - aiogram.event - INFO - Update id=468475714 is handled. Duration 149 ms by bot id=7529222837
+2026-03-05 14:49:35,752 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2026-03-05 14:49:35,754 - aiogram.dispatcher - INFO - Polling stopped for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-05 14:49:35,754 - aiogram.dispatcher - INFO - Polling stopped
+2026-03-05 15:09:55,860 - __main__ - INFO - Bot started!
+2026-03-05 15:09:55,861 - aiogram.dispatcher - INFO - Start polling
+2026-03-05 15:09:57,096 - aiogram.dispatcher - INFO - Run polling for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-05 15:10:29,096 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2026-03-05 15:10:29,098 - aiogram.dispatcher - INFO - Polling stopped for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-05 15:10:29,099 - aiogram.dispatcher - INFO - Polling stopped
+2026-03-05 15:22:19,056 - __main__ - INFO - Bot started!
+2026-03-05 15:22:19,057 - aiogram.dispatcher - INFO - Start polling
+2026-03-05 15:22:19,237 - aiogram.dispatcher - INFO - Run polling for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-05 15:22:19,500 - aiogram.event - INFO - Update id=468475717 is not handled. Duration 23 ms by bot id=7529222837
+2026-03-05 15:22:19,645 - aiogram.event - INFO - Update id=468475718 is handled. Duration 169 ms by bot id=7529222837
+2026-03-05 15:22:19,647 - aiogram.event - INFO - Update id=468475719 is handled. Duration 166 ms by bot id=7529222837
+2026-03-05 15:22:19,665 - aiogram.event - INFO - Update id=468475715 is handled. Duration 191 ms by bot id=7529222837
+2026-03-05 15:22:19,700 - aiogram.event - INFO - Update id=468475722 is handled. Duration 217 ms by bot id=7529222837
+2026-03-05 15:22:19,733 - aiogram.event - INFO - Update id=468475720 is handled. Duration 251 ms by bot id=7529222837
+2026-03-05 15:22:19,759 - aiogram.event - INFO - Update id=468475721 is handled. Duration 278 ms by bot id=7529222837
+2026-03-05 15:22:19,785 - aiogram.event - INFO - Update id=468475716 is handled. Duration 309 ms by bot id=7529222837
+2026-03-05 15:22:45,965 - aiogram.event - INFO - Update id=468475723 is handled. Duration 141 ms by bot id=7529222837
+2026-03-05 15:22:48,273 - aiogram.event - INFO - Update id=468475724 is handled. Duration 136 ms by bot id=7529222837
+2026-03-05 15:22:57,668 - aiogram.event - INFO - Update id=468475725 is handled. Duration 114 ms by bot id=7529222837
+2026-03-05 15:24:26,644 - aiogram.event - INFO - Update id=468475726 is handled. Duration 181 ms by bot id=7529222837
+2026-03-05 15:30:28,573 - aiogram.event - INFO - Update id=468475727 is handled. Duration 223 ms by bot id=7529222837
+2026-03-05 15:30:34,479 - aiogram.event - INFO - Update id=468475728 is handled. Duration 391 ms by bot id=7529222837
+2026-03-05 15:31:30,290 - aiogram.event - INFO - Update id=468475729 is handled. Duration 189 ms by bot id=7529222837
+2026-03-05 15:31:35,753 - aiogram.event - INFO - Update id=468475730 is handled. Duration 229 ms by bot id=7529222837
+2026-03-05 15:31:41,813 - aiogram.event - INFO - Update id=468475731 is handled. Duration 133 ms by bot id=7529222837
+2026-03-05 15:33:19,448 - aiogram.event - INFO - Update id=468475732 is handled. Duration 163 ms by bot id=7529222837
+2026-03-05 15:58:03,215 - aiogram.event - INFO - Update id=468475733 is handled. Duration 428 ms by bot id=7529222837
+2026-03-05 15:58:07,840 - aiogram.event - INFO - Update id=468475734 is handled. Duration 125 ms by bot id=7529222837
+2026-03-05 16:01:13,808 - aiogram.event - INFO - Update id=468475735 is handled. Duration 5 ms by bot id=7529222837
+2026-03-05 16:10:21,151 - aiogram.event - INFO - Update id=468475736 is handled. Duration 4 ms by bot id=7529222837
+2026-03-05 16:20:30,076 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2026-03-05 16:20:30,081 - aiogram.dispatcher - INFO - Polling stopped for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-05 16:20:30,081 - aiogram.dispatcher - INFO - Polling stopped
+2026-03-05 16:20:45,662 - __main__ - INFO - Bot started!
+2026-03-05 16:20:45,663 - aiogram.dispatcher - INFO - Start polling
+2026-03-05 16:20:45,824 - aiogram.dispatcher - INFO - Run polling for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-05 16:21:02,471 - aiogram.event - INFO - Update id=468475737 is handled. Duration 165 ms by bot id=7529222837
+2026-03-05 16:24:10,142 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2026-03-05 16:24:10,144 - aiogram.dispatcher - INFO - Polling stopped for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-05 16:24:10,144 - aiogram.dispatcher - INFO - Polling stopped
+2026-03-05 16:24:21,435 - __main__ - INFO - Bot started!
+2026-03-05 16:24:21,436 - aiogram.dispatcher - INFO - Start polling
+2026-03-05 16:24:21,604 - aiogram.dispatcher - INFO - Run polling for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-05 16:24:36,805 - aiogram.event - INFO - Update id=468475738 is handled. Duration 167 ms by bot id=7529222837
+2026-03-05 16:25:55,153 - aiogram.event - INFO - Update id=468475739 is handled. Duration 269 ms by bot id=7529222837
+2026-03-05 16:30:33,442 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2026-03-05 16:30:33,445 - aiogram.dispatcher - INFO - Polling stopped for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-05 16:30:33,445 - aiogram.dispatcher - INFO - Polling stopped
+2026-03-05 16:30:45,588 - __main__ - INFO - Bot started!
+2026-03-05 16:30:45,588 - aiogram.dispatcher - INFO - Start polling
+2026-03-05 16:30:45,752 - aiogram.dispatcher - INFO - Run polling for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-05 16:31:02,560 - aiogram.event - INFO - Update id=468475740 is handled. Duration 192 ms by bot id=7529222837
+2026-03-05 16:35:48,079 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2026-03-05 16:35:48,082 - aiogram.dispatcher - INFO - Polling stopped for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-05 16:35:48,082 - aiogram.dispatcher - INFO - Polling stopped
+2026-03-05 16:36:01,453 - __main__ - INFO - Bot started!
+2026-03-05 16:36:01,454 - aiogram.dispatcher - INFO - Start polling
+2026-03-05 16:36:02,653 - aiogram.dispatcher - INFO - Run polling for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-05 16:36:21,110 - aiogram.event - INFO - Update id=468475741 is handled. Duration 413 ms by bot id=7529222837
+2026-03-05 16:42:12,313 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2026-03-05 16:42:12,315 - aiogram.dispatcher - INFO - Polling stopped for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-05 16:42:12,316 - aiogram.dispatcher - INFO - Polling stopped
+2026-03-05 16:42:23,834 - __main__ - INFO - Bot started!
+2026-03-05 16:42:23,835 - aiogram.dispatcher - INFO - Start polling
+2026-03-05 16:42:24,007 - aiogram.dispatcher - INFO - Run polling for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-05 16:43:21,087 - aiogram.event - INFO - Update id=468475742 is handled. Duration 212 ms by bot id=7529222837
+2026-03-05 16:43:25,240 - aiogram.event - INFO - Update id=468475743 is handled. Duration 148 ms by bot id=7529222837
+2026-03-05 16:43:27,997 - aiogram.event - INFO - Update id=468475744 is handled. Duration 133 ms by bot id=7529222837
+2026-03-05 16:46:18,830 - aiogram.event - INFO - Update id=468475745 is handled. Duration 506 ms by bot id=7529222837
+2026-03-05 16:53:07,109 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2026-03-05 16:53:07,111 - aiogram.dispatcher - INFO - Polling stopped for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-05 16:53:07,111 - aiogram.dispatcher - INFO - Polling stopped
+2026-03-05 16:53:18,142 - __main__ - INFO - Bot started!
+2026-03-05 16:53:18,142 - aiogram.dispatcher - INFO - Start polling
+2026-03-05 16:53:18,309 - aiogram.dispatcher - INFO - Run polling for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-05 16:53:52,945 - aiogram.event - INFO - Update id=468475746 is handled. Duration 285 ms by bot id=7529222837
+2026-03-05 16:53:55,431 - aiogram.event - INFO - Update id=468475747 is handled. Duration 407 ms by bot id=7529222837
+2026-03-05 16:54:05,825 - aiogram.event - INFO - Update id=468475748 is handled. Duration 164 ms by bot id=7529222837
+2026-03-05 16:56:01,758 - aiogram.event - INFO - Update id=468475749 is handled. Duration 442 ms by bot id=7529222837
+2026-03-05 17:56:38,728 - __main__ - INFO - Bot started!
+2026-03-05 17:56:38,729 - aiogram.dispatcher - INFO - Start polling
+2026-03-05 17:56:38,873 - aiogram.dispatcher - INFO - Run polling for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-05 17:56:57,102 - aiogram.event - INFO - Update id=468475750 is handled. Duration 201 ms by bot id=7529222837
+2026-03-05 17:56:59,533 - aiogram.event - INFO - Update id=468475751 is handled. Duration 168 ms by bot id=7529222837
+2026-03-05 17:57:02,525 - aiogram.event - INFO - Update id=468475752 is handled. Duration 115 ms by bot id=7529222837
+2026-03-05 17:58:37,717 - aiogram.event - INFO - Update id=468475753 is handled. Duration 523 ms by bot id=7529222837
+2026-03-05 18:01:16,907 - aiogram.event - INFO - Update id=468475754 is handled. Duration 143 ms by bot id=7529222837
+2026-03-05 18:01:20,028 - aiogram.event - INFO - Update id=468475755 is handled. Duration 447 ms by bot id=7529222837
+2026-03-05 18:01:25,611 - aiogram.event - INFO - Update id=468475756 is handled. Duration 93 ms by bot id=7529222837
+2026-03-05 18:10:14,187 - aiogram.event - INFO - Update id=468475757 is handled. Duration 199 ms by bot id=7529222837
+2026-03-05 18:10:18,146 - aiogram.event - INFO - Update id=468475758 is handled. Duration 150 ms by bot id=7529222837
+2026-03-05 18:10:25,039 - aiogram.event - INFO - Update id=468475759 is handled. Duration 144 ms by bot id=7529222837
+2026-03-05 18:12:20,927 - aiogram.event - INFO - Update id=468475760 is handled. Duration 368 ms by bot id=7529222837
+2026-03-05 18:15:59,044 - aiogram.event - INFO - Update id=468475761 is handled. Duration 290 ms by bot id=7529222837
+2026-03-05 18:30:32,274 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2026-03-05 18:30:32,275 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7529222837)
+2026-03-05 18:30:48,549 - aiogram.dispatcher - INFO - Connection established (tryings = 1, bot id = 7529222837)
+2026-03-05 18:32:48,990 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2026-03-05 18:32:48,991 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7529222837)
+2026-03-05 18:33:00,134 - aiogram.dispatcher - INFO - Connection established (tryings = 1, bot id = 7529222837)
+2026-03-05 18:41:29,908 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2026-03-05 18:41:29,910 - aiogram.dispatcher - INFO - Polling stopped for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-05 18:41:29,910 - aiogram.dispatcher - INFO - Polling stopped
+2026-03-05 18:44:33,808 - __main__ - INFO - Bot started!
+2026-03-05 18:44:33,809 - aiogram.dispatcher - INFO - Start polling
+2026-03-05 18:44:33,967 - aiogram.dispatcher - INFO - Run polling for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-05 19:19:46,129 - __main__ - INFO - Bot started!
+2026-03-05 19:19:46,130 - aiogram.dispatcher - INFO - Start polling
+2026-03-05 19:19:46,300 - aiogram.dispatcher - INFO - Run polling for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-05 19:19:46,339 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-03-05 19:19:46,339 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7529222837)
+2026-03-05 19:19:50,528 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-03-05 19:19:50,528 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7529222837)
+2026-03-05 19:19:51,562 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-03-05 19:19:51,563 - aiogram.dispatcher - WARNING - Sleep for 1.191434 seconds and try again... (tryings = 1, bot id = 7529222837)
+2026-03-05 19:19:55,793 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-03-05 19:19:55,793 - aiogram.dispatcher - WARNING - Sleep for 1.283523 seconds and try again... (tryings = 1, bot id = 7529222837)
+2026-03-05 19:19:57,117 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-03-05 19:19:57,117 - aiogram.dispatcher - WARNING - Sleep for 1.553904 seconds and try again... (tryings = 2, bot id = 7529222837)
+2026-03-05 19:20:01,713 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-03-05 19:20:01,713 - aiogram.dispatcher - WARNING - Sleep for 1.714251 seconds and try again... (tryings = 2, bot id = 7529222837)
+2026-03-05 19:20:03,462 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-03-05 19:20:03,462 - aiogram.dispatcher - WARNING - Sleep for 2.018571 seconds and try again... (tryings = 3, bot id = 7529222837)
+2026-03-05 19:20:08,521 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-03-05 19:20:08,521 - aiogram.dispatcher - WARNING - Sleep for 2.228293 seconds and try again... (tryings = 3, bot id = 7529222837)
+2026-03-05 19:20:10,793 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-03-05 19:20:10,794 - aiogram.dispatcher - WARNING - Sleep for 2.772910 seconds and try again... (tryings = 4, bot id = 7529222837)
+2026-03-05 19:20:16,604 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-03-05 19:20:16,604 - aiogram.dispatcher - WARNING - Sleep for 2.922254 seconds and try again... (tryings = 4, bot id = 7529222837)
+2026-03-05 19:20:19,565 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-03-05 19:20:19,565 - aiogram.dispatcher - WARNING - Sleep for 3.680135 seconds and try again... (tryings = 5, bot id = 7529222837)
+2026-03-05 19:20:23,286 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-03-05 19:20:23,286 - aiogram.dispatcher - WARNING - Sleep for 3.950188 seconds and try again... (tryings = 5, bot id = 7529222837)
+2026-03-05 19:20:26,135 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2026-03-05 19:20:26,136 - aiogram.dispatcher - INFO - Polling stopped for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-05 19:20:26,136 - aiogram.dispatcher - INFO - Polling stopped
+2026-03-05 19:20:33,287 - aiogram.dispatcher - INFO - Connection established (tryings = 6, bot id = 7529222837)
+2026-03-05 19:23:06,791 - aiogram.dispatcher - WARNING - Received SIGTERM signal
+2026-03-05 19:23:06,793 - aiogram.dispatcher - INFO - Polling stopped for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-05 19:23:06,793 - aiogram.dispatcher - INFO - Polling stopped
+2026-03-05 19:23:42,977 - __main__ - INFO - Bot started!
+2026-03-05 19:23:42,978 - aiogram.dispatcher - INFO - Start polling
+2026-03-05 19:23:44,235 - aiogram.dispatcher - INFO - Run polling for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-05 19:24:05,695 - aiogram.event - INFO - Update id=468475762 is handled. Duration 292 ms by bot id=7529222837
+2026-03-05 19:24:12,463 - aiogram.event - INFO - Update id=468475763 is handled. Duration 180 ms by bot id=7529222837
+2026-03-05 19:24:18,157 - aiogram.event - INFO - Update id=468475764 is handled. Duration 196 ms by bot id=7529222837
+2026-03-05 19:28:46,076 - aiogram.event - INFO - Update id=468475765 is handled. Duration 382 ms by bot id=7529222837
+2026-03-05 19:40:11,944 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2026-03-05 19:40:11,946 - aiogram.dispatcher - INFO - Polling stopped for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-05 19:40:11,946 - aiogram.dispatcher - INFO - Polling stopped
+2026-03-05 19:40:24,573 - __main__ - INFO - Bot started!
+2026-03-05 19:40:24,574 - aiogram.dispatcher - INFO - Start polling
+2026-03-05 19:40:24,680 - aiogram.dispatcher - INFO - Run polling for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-05 19:40:46,114 - aiogram.event - INFO - Update id=468475766 is handled. Duration 197 ms by bot id=7529222837
+2026-03-05 19:40:48,468 - aiogram.event - INFO - Update id=468475767 is handled. Duration 132 ms by bot id=7529222837
+2026-03-05 19:40:53,673 - aiogram.event - INFO - Update id=468475768 is handled. Duration 127 ms by bot id=7529222837
+2026-03-05 19:44:20,871 - aiogram.event - INFO - Update id=468475769 is handled. Duration 399 ms by bot id=7529222837
+2026-03-05 19:49:56,883 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2026-03-05 19:49:56,884 - aiogram.dispatcher - INFO - Polling stopped for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-05 19:49:56,885 - aiogram.dispatcher - INFO - Polling stopped
+2026-03-05 20:06:46,614 - __main__ - INFO - Bot started!
+2026-03-05 20:06:46,615 - aiogram.dispatcher - INFO - Start polling
+2026-03-05 20:06:47,807 - aiogram.dispatcher - INFO - Run polling for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-05 20:07:21,714 - aiogram.event - INFO - Update id=468475770 is handled. Duration 144 ms by bot id=7529222837
+2026-03-05 20:07:24,040 - aiogram.event - INFO - Update id=468475771 is handled. Duration 123 ms by bot id=7529222837
+2026-03-05 20:07:28,151 - aiogram.event - INFO - Update id=468475772 is handled. Duration 89 ms by bot id=7529222837
+2026-03-05 20:09:14,778 - aiogram.event - INFO - Update id=468475773 is handled. Duration 372 ms by bot id=7529222837
+2026-03-05 20:12:47,805 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2026-03-05 20:12:47,807 - aiogram.dispatcher - INFO - Polling stopped for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-05 20:12:47,807 - aiogram.dispatcher - INFO - Polling stopped
+2026-03-05 20:12:57,462 - __main__ - INFO - Bot started!
+2026-03-05 20:12:57,463 - aiogram.dispatcher - INFO - Start polling
+2026-03-05 20:12:57,589 - aiogram.dispatcher - INFO - Run polling for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-05 20:13:07,201 - aiogram.event - INFO - Update id=468475774 is handled. Duration 169 ms by bot id=7529222837
+2026-03-05 20:13:08,851 - aiogram.event - INFO - Update id=468475775 is handled. Duration 117 ms by bot id=7529222837
+2026-03-05 20:13:16,796 - aiogram.event - INFO - Update id=468475776 is handled. Duration 110 ms by bot id=7529222837
+2026-03-05 20:14:55,827 - aiogram.event - INFO - Update id=468475777 is handled. Duration 356 ms by bot id=7529222837
+2026-03-05 20:25:40,580 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2026-03-05 20:25:40,583 - aiogram.dispatcher - INFO - Polling stopped for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-05 20:25:40,583 - aiogram.dispatcher - INFO - Polling stopped
+2026-03-05 20:25:46,876 - __main__ - INFO - Bot started!
+2026-03-05 20:25:46,876 - aiogram.dispatcher - INFO - Start polling
+2026-03-05 20:25:46,996 - aiogram.dispatcher - INFO - Run polling for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-05 20:26:03,905 - aiogram.event - INFO - Update id=468475778 is handled. Duration 150 ms by bot id=7529222837
+2026-03-05 20:26:05,585 - aiogram.event - INFO - Update id=468475779 is handled. Duration 152 ms by bot id=7529222837
+2026-03-05 20:26:15,178 - aiogram.event - INFO - Update id=468475780 is handled. Duration 103 ms by bot id=7529222837
+2026-03-05 20:35:28,597 - aiogram.event - INFO - Update id=468475781 is handled. Duration 272 ms by bot id=7529222837
+2026-03-05 20:36:05,710 - aiogram.event - INFO - Update id=468475782 is handled. Duration 405 ms by bot id=7529222837
+2026-03-05 20:41:30,573 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2026-03-05 20:41:30,574 - aiogram.dispatcher - INFO - Polling stopped for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-05 20:41:30,574 - aiogram.dispatcher - INFO - Polling stopped
+2026-03-05 21:05:20,041 - __main__ - INFO - Bot started!
+2026-03-05 21:05:20,041 - aiogram.dispatcher - INFO - Start polling
+2026-03-05 21:05:20,183 - aiogram.dispatcher - INFO - Run polling for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-05 21:05:53,704 - aiogram.event - INFO - Update id=468475783 is handled. Duration 149 ms by bot id=7529222837
+2026-03-05 21:05:55,701 - aiogram.event - INFO - Update id=468475784 is handled. Duration 280 ms by bot id=7529222837
+2026-03-05 21:06:00,100 - aiogram.event - INFO - Update id=468475785 is handled. Duration 106 ms by bot id=7529222837
+2026-03-05 21:07:38,885 - aiogram.event - INFO - Update id=468475786 is handled. Duration 428 ms by bot id=7529222837
+2026-03-05 21:23:24,930 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2026-03-05 21:23:24,932 - aiogram.dispatcher - INFO - Polling stopped for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-05 21:23:24,932 - aiogram.dispatcher - INFO - Polling stopped
+2026-03-05 22:20:02,288 - __main__ - INFO - Bot started!
+2026-03-05 22:20:02,288 - aiogram.dispatcher - INFO - Start polling
+2026-03-05 22:20:02,410 - aiogram.dispatcher - INFO - Run polling for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-05 22:20:28,907 - aiogram.event - INFO - Update id=468475787 is handled. Duration 160 ms by bot id=7529222837
+2026-03-05 22:20:31,249 - aiogram.event - INFO - Update id=468475788 is handled. Duration 118 ms by bot id=7529222837
+2026-03-05 22:20:35,663 - aiogram.event - INFO - Update id=468475789 is handled. Duration 100 ms by bot id=7529222837
+2026-03-06 01:08:01,123 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+2026-03-06 01:08:01,124 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7529222837)
+2026-03-06 01:08:12,255 - aiogram.dispatcher - INFO - Connection established (tryings = 1, bot id = 7529222837)
