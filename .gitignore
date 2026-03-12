@@ -1,0 +1,230 @@
+cat > /opt/vpn_bot/.gitignore << 'EOF'
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+*.manifest
+*.spec
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Virtual environments
+venv/
+ENV/
+env/
+env.bak/
+venv.bak/
+.venv/
+.virtualenv/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+.env.production
+.env.development
+.env.test
+!.env.example
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+*.db-wal
+*.db-shm
+spic.db
+vpn_bot.db
+
+# Logs
+*.log
+logs/
+log/
+*.log.*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDE and editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.sublime-project
+*.sublime-workspace
+.project
+.pydevproject
+.settings/
+.classpath
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Bot specific
+bot.session
+*.session
+*.session-journal
+backups/
+data/
+temp/
+tmp/
+.cache/
+.pytest_cache/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Security - keys and certificates
+*.pem
+*.key
+*.crt
+*.csr
+*.p12
+*.pfx
+id_*
+!id_*.pub
+*.priv
+private*
+secrets*
+*credentials*
+!credentials.toml.example
+
+# SSL/TLS
+ssl/
+certs/
+certificates/
+
+# Docker
+.dockerignore
+docker-compose.override.yml
+
+# Testing
+.tox/
+.nox/
+coverage.xml
+*.cover
+.hypothesis/
+htmlcov/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage/
+
+# Documentation build
+docs/_build/
+site/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+# Cython debug symbols
+cython_debug/
+
+# Node (if any frontend)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Compiled files
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.a
+*.out
+
+# Archives
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Backup files
+*.bak
+*.backup
+*.old
+*.orig
+*.save
+*~
+
+# Local config
+config.local.py
+settings.local.py
+
+# FreeKassa specific (sensitive)
+freekassa_secrets.py
+payment_secrets.py
+
+# QR codes temporary
+temp_qr/
+*.png.tmp
+EOF
