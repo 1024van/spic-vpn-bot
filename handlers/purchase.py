@@ -14,10 +14,12 @@ from datetime import datetime
 
 router = Router()
 
+
 class PurchaseStates(StatesGroup):
     selecting_plan = State()
     confirming_payment = State()
     waiting_payment = State()
+
 
 @router.message(F.text == "🛒 Купить VPN")
 async def buy_vpn(message: Message):
@@ -30,25 +32,26 @@ async def buy_vpn(message: Message):
         "• До 3 устройств одновременно\n"
         "• Протокол TrustTunnel (невозможно заблокировать)\n"
         "• Доступ к серверу в Европе",
-        reply_markup=subscription_plans()
+        reply_markup=subscription_plans(),
     )
+
 
 @router.callback_query(F.data.startswith("buy_"))
 async def process_plan_selection(callback: CallbackQuery, state: FSMContext):
     plan_code = callback.data.replace("buy_", "")
     plan_data = PRICES.get(plan_code)
-    
+
     if not plan_data:
         await callback.answer("❌ Ошибка выбора плана", show_alert=True)
         return
-    
+
     await state.update_data(
         plan_code=plan_code,
         price=plan_data["price"],
         days=plan_data["days"],
-        label=plan_data["label"]
+        label=plan_data["label"],
     )
-    
+
     await callback.message.edit_text(
         f"📦 <b>Подтверждение заказа SPIC:</b>\n\n"
         f"• Тариф: {plan_data['label']}\n"
@@ -56,17 +59,18 @@ async def process_plan_selection(callback: CallbackQuery, state: FSMContext):
         f"• Сервер: 🌍 Европа (stop2virus.xyz)\n"
         f"• Сумма: <b>{plan_data['price']}₽</b>\n\n"
         f"Выберите способ оплаты:",
-        reply_markup=payment_methods()
+        reply_markup=payment_methods(),
     )
     await state.set_state(PurchaseStates.confirming_payment)
     await callback.answer()
+
 
 @router.callback_query(PurchaseStates.confirming_payment, F.data.startswith("pay_"))
 async def process_payment_selection(callback: CallbackQuery, state: FSMContext, bot: Bot):
     payment_method = callback.data.replace("pay_", "")
     data = await state.get_data()
     user_id = callback.from_user.id
-    
+
     if payment_method == "manual":
         await callback.message.edit_text(
             "💬 <b>Ручная оплата</b>\n\n"
@@ -79,49 +83,57 @@ async def process_payment_selection(callback: CallbackQuery, state: FSMContext, 
         )
         await state.clear()
         return
-    
+
     if payment_method == "freekassa" and FREEKASSA_ENABLED:
         # Генерируем ID заказа
         order_id = f"SPIC_{user_id}_{int(datetime.now().timestamp())}"
-        
+
         # Сохраняем в БД
-        db.add_payment(user_id, data['price'], order_id, data['plan_code'])
-        
-        # Создаём URL для оплаты
-        payment_url = freekassa.create_payment_url(
-            amount=data['price'],
-            order_id=order_id,
-            description=f"SPIC VPN {data['label']}"
+        db.add_payment(user_id, data["price"], order_id, data["plan_code"])
+
+        # Логируем для отладки
+        print(
+            f"DEBUG: FreeKassa pay handler, user_id={user_id}, "
+            f"plan={data['plan_code']}, price={data['price']}, order_id={order_id}"
         )
-        
+
+        # Создаём URL для оплаты (новая сигнатура: amount, order_id)
+        payment_url = freekassa.create_payment_url(
+            amount=data["price"],
+            order_id=order_id,
+        )
+
+        print("DEBUG: FreeKassa URL:", payment_url)
+
         await callback.message.edit_text(
             f"💳 <b>Оплата через FreeKassa</b>\n\n"
             f"Сумма: <b>{data['price']}₽</b>\n"
             f"Номер заказа: <code>{order_id}</code>\n\n"
             f"Нажмите кнопку ниже для перехода к оплате.\n"
             f"После оплаты нажмите «Я оплатил».",
-            reply_markup=freekassa_payment_url(payment_url)
+            reply_markup=freekassa_payment_url(payment_url),
         )
-        
+
         await state.set_state(PurchaseStates.waiting_payment)
         await state.update_data(order_id=order_id)
         await callback.answer()
         return
-    
+
     await callback.answer("❌ Способ оплаты недоступен", show_alert=True)
+
 
 @router.callback_query(PurchaseStates.waiting_payment, F.data == "check_payment")
 async def check_payment_status(callback: CallbackQuery, state: FSMContext, bot: Bot):
     """Проверка статуса платежа (ручная, для демо)"""
     data = await state.get_data()
     user_id = callback.from_user.id
-    
+
     await callback.message.edit_text(
         "⏳ <b>Проверка платежа...</b>\n\n"
         "Если вы уже оплатили, администратор скоро подтвердит платёж.\n"
         "Вы получите уведомление когда подписка будет активирована."
     )
-    
+
     # Уведомляем админов о новом платеже
     for admin_id in ADMIN_IDS:
         await bot.send_message(
@@ -132,99 +144,102 @@ async def check_payment_status(callback: CallbackQuery, state: FSMContext, bot: 
             f"Проверьте в <a href='https://freekassa.ru/cabinet/merchant'>кабинете FreeKassa</a>\n"
             f"и подтвердите командой:\n"
             f"<code>/confirm {data.get('order_id', 'N/A')}</code>",
-            disable_web_page_preview=True
+            disable_web_page_preview=True,
         )
-    
+
     await state.clear()
     await callback.answer()
+
 
 @router.message(F.text == "📱 Мои подписки")
 async def my_subscriptions(message: Message):
     user_id = message.from_user.id
     subs = db.get_active_subscriptions(user_id)
-    
+
     if not subs:
         await message.answer(
             "📱 <b>У вас нет активных подписок</b>\n\n"
             "Нажмите '🛒 Купить VPN' чтобы приобрести доступ.",
-            reply_markup=main_menu(user_id in ADMIN_IDS)
+            reply_markup=main_menu(user_id in ADMIN_IDS),
         )
         return
-    
+
     text = "📱 <b>Ваши активные подписки SPIC:</b>\n\n"
-    
+
     for sub in subs:
-        days_left = (sub['expires_at'] - datetime.now()).days
+        days_left = (sub["expires_at"] - datetime.now()).days
         text += (
             f"• Сервер: {sub['server']}\n"
             f"• Логин: <code>{sub['username']}</code>\n"
             f"• Истекает: {sub['expires_at'].strftime('%d.%m.%Y')} "
             f"(осталось {days_left} дней)\n\n"
         )
-    
+
     text += "Для продления просто купите новый тариф."
-    
+
     await message.answer(text, reply_markup=main_menu(user_id in ADMIN_IDS))
+
 
 @router.message(Command("confirm"))
 async def confirm_payment_manual(message: Message, bot: Bot):
     """Админ подтверждает платеж вручную"""
     if message.from_user.id not in ADMIN_IDS:
         return
-    
+
     try:
         args = message.text.split()
         if len(args) != 2:
             await message.reply("Использование: /confirm <order_id>")
             return
-            
+
         order_id = args[1]
         payment = db.get_payment(order_id)
-        
+
         if not payment:
             await message.reply("❌ Платеж не найден")
             return
-        
-        if payment['status'] == 'completed':
+
+        if payment["status"] == "completed":
             await message.reply("⚠️ Этот платеж уже подтвержден")
             return
-        
+
         # Подтверждаем платеж
         db.confirm_payment(order_id)
-        
+
         # Выдаем подписку
         await deliver_subscription(
             bot,
-            payment['user_id'],
-            payment['plan_code']
+            payment["user_id"],
+            payment["plan_code"],
         )
-        
+
         await message.reply(f"✅ Платеж {order_id} подтвержден. Подписка выдана.")
-        
+
     except Exception as e:
         await message.reply(f"❌ Ошибка: {str(e)}")
+
 
 async def deliver_subscription(bot: Bot, user_id: int, plan_code: str):
     """Выдача подписки после оплаты"""
     try:
         plan_data = PRICES[plan_code]
-        
+
         # Создаем пользователя в TrustTunnel
         config = trusttunnel.create_user(user_id)
-        
+
         # Сохраняем в БД
         expires_at = db.add_subscription(
-            user_id, 
-            config['username'], 
-            'MAIN', 
-            plan_data['days'],
-            config
+            user_id,
+            config["username"],
+            "MAIN",
+            plan_data["days"],
+            config,
         )
-        
+
         # Отправляем QR-код
-        qr_bytes = base64.b64decode(config['qr_code'])
+        qr_bytes = base64.b64decode(config["qr_code"])
         photo = BufferedInputFile(qr_bytes, filename="qr_code.png")
-        
+
         await bot.send_photo(
             user_id,
             photo=photo,
@@ -239,9 +254,9 @@ async def deliver_subscription(bot: Bot, user_id: int, plan_code: str):
                 f"3. Готово!\n\n"
                 f"🔗 <b>Или используйте ссылку:</b>\n"
                 f"<code>{config['deeplink']}</code>"
-            )
+            ),
         )
-        
+
         # Отправляем инструкцию
         await bot.send_message(
             user_id,
@@ -253,16 +268,16 @@ async def deliver_subscription(bot: Bot, user_id: int, plan_code: str):
                 "https://github.com/TrustTunnel/TrustTunnelClient\n\n"
                 "❓ По вопросам обращайтесь в поддержку."
             ),
-            reply_markup=main_menu(user_id in ADMIN_IDS)
+            reply_markup=main_menu(user_id in ADMIN_IDS),
         )
-        
+
     except Exception as e:
         await bot.send_message(
             user_id,
             f"❌ <b>Ошибка создания конфигурации:</b>\n{str(e)}\n\n"
             f"Обратитесь в поддержку."
         )
-        
+
         # Уведомляем админов
         for admin_id in ADMIN_IDS:
             await bot.send_message(
@@ -271,6 +286,7 @@ async def deliver_subscription(bot: Bot, user_id: int, plan_code: str):
                 f"User ID: {user_id}\n"
                 f"Error: {str(e)}"
             )
+
 
 def register_handlers_purchase(dp):
     dp.include_router(router)

@@ -4,7 +4,7 @@ from config import FREEKASSA_ENABLED, YOOKASSA_ENABLED, PRICES
 
 def main_menu(is_admin: bool = False):
     builder = ReplyKeyboardBuilder()
-    builder.button(text="🛒 Купить VPN")
+    builder.button(text="🛒 Купить SPIC")
     builder.button(text="📱 Мои подписки")
     builder.button(text="❓ Помощь")
     builder.button(text="📞 Поддержка")

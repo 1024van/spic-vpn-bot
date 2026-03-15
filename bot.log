@@ -447,3 +447,372 @@ aiogram.exceptions.TelegramNetworkError: HTTP Client says - Request timeout erro
 2026-03-12 10:32:05,451 - aiogram.event - INFO - Update id=468475821 is handled. Duration 154 ms by bot id=7529222837
 2026-03-12 10:32:07,808 - aiogram.event - INFO - Update id=468475822 is handled. Duration 180 ms by bot id=7529222837
 2026-03-12 10:32:10,271 - aiogram.event - INFO - Update id=468475823 is handled. Duration 332 ms by bot id=7529222837
+2026-03-15 04:26:24,584 - aiogram.event - INFO - Update id=468475901 is handled. Duration 174 ms by bot id=7529222837
+2026-03-15 04:26:26,894 - aiogram.event - INFO - Update id=468475902 is handled. Duration 57 ms by bot id=7529222837
+2026-03-15 04:26:28,893 - aiogram.event - INFO - Update id=468475903 is handled. Duration 193 ms by bot id=7529222837
+2026-03-15 04:26:32,275 - handlers.purchase - INFO - Payment method selected: freekassa, user: 1010577007, plan: 1_month
+2026-03-15 04:26:32,284 - handlers.purchase - INFO - FreeKassa URL generated: https://pay.freekassa.net/?oa=299&o=Оплатить%20SPIC%201%20мес.&s=ab1322681edd0ccbcabdbdcbeaa90833&currency=RUB&m=70840
+2026-03-15 04:26:32,380 - aiogram.event - INFO - Update id=468475904 is handled. Duration 107 ms by bot id=7529222837
+2026-03-15 04:32:52,007 - aiogram.dispatcher - WARNING - Received SIGTERM signal
+2026-03-15 04:32:52,009 - aiogram.dispatcher - INFO - Polling stopped for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-15 04:32:52,010 - aiogram.dispatcher - INFO - Polling stopped
+2026-03-15 04:32:57,005 - __main__ - INFO - Bot started!
+2026-03-15 04:32:57,006 - aiogram.dispatcher - INFO - Start polling
+2026-03-15 04:32:57,143 - aiogram.dispatcher - INFO - Run polling for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-15 04:33:09,637 - aiogram.event - INFO - Update id=468475905 is handled. Duration 277 ms by bot id=7529222837
+2026-03-15 04:33:11,134 - aiogram.event - INFO - Update id=468475906 is handled. Duration 56 ms by bot id=7529222837
+2026-03-15 04:33:12,901 - aiogram.event - INFO - Update id=468475907 is handled. Duration 169 ms by bot id=7529222837
+2026-03-15 04:33:17,887 - aiogram.event - INFO - Update id=468475908 is handled. Duration 100 ms by bot id=7529222837
+2026-03-15 04:39:55,614 - aiogram.dispatcher - WARNING - Received SIGTERM signal
+2026-03-15 04:39:55,616 - aiogram.dispatcher - INFO - Polling stopped for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-15 04:39:55,616 - aiogram.dispatcher - INFO - Polling stopped
+2026-03-15 04:39:59,559 - __main__ - INFO - Bot started!
+2026-03-15 04:39:59,560 - aiogram.dispatcher - INFO - Start polling
+2026-03-15 04:39:59,682 - aiogram.dispatcher - INFO - Run polling for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-15 04:40:13,067 - aiogram.event - INFO - Update id=468475909 is handled. Duration 209 ms by bot id=7529222837
+2026-03-15 04:40:15,381 - aiogram.event - INFO - Update id=468475910 is handled. Duration 262 ms by bot id=7529222837
+2026-03-15 04:40:18,115 - aiogram.event - INFO - Update id=468475911 is handled. Duration 59 ms by bot id=7529222837
+2026-03-15 04:40:20,137 - aiogram.event - INFO - Update id=468475912 is handled. Duration 128 ms by bot id=7529222837
+2026-03-15 04:40:26,888 - aiogram.event - INFO - Update id=468475913 is not handled. Duration 7 ms by bot id=7529222837
+2026-03-15 04:40:26,888 - aiogram.event - ERROR - Cause exception while process update id=468475913 by bot id=7529222837
+TypeError: FreeKassaPayment.create_payment_url() got an unexpected keyword argument 'description'
+Traceback (most recent call last):
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/middlewares/error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/middlewares/user_context.py", line 27, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/fsm/middleware.py", line 41, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 128, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 123, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 156, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 128, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 123, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 148, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/handlers/purchase.py", line 91, in process_payment_selection
+    payment_url = freekassa.create_payment_url(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: FreeKassaPayment.create_payment_url() got an unexpected keyword argument 'description'
+2026-03-15 04:40:40,937 - aiogram.event - INFO - Update id=468475914 is handled. Duration 149 ms by bot id=7529222837
+2026-03-15 04:40:43,319 - aiogram.event - INFO - Update id=468475915 is handled. Duration 98 ms by bot id=7529222837
+2026-03-15 04:40:46,551 - aiogram.event - INFO - Update id=468475916 is not handled. Duration 5 ms by bot id=7529222837
+2026-03-15 04:40:46,551 - aiogram.event - ERROR - Cause exception while process update id=468475916 by bot id=7529222837
+TypeError: FreeKassaPayment.create_payment_url() got an unexpected keyword argument 'description'
+Traceback (most recent call last):
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/middlewares/error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/middlewares/user_context.py", line 27, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/fsm/middleware.py", line 41, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 128, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 123, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 156, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 128, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 123, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 148, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/handlers/purchase.py", line 91, in process_payment_selection
+    payment_url = freekassa.create_payment_url(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: FreeKassaPayment.create_payment_url() got an unexpected keyword argument 'description'
+2026-03-15 04:41:18,515 - aiogram.dispatcher - WARNING - Received SIGTERM signal
+2026-03-15 04:41:18,517 - aiogram.dispatcher - INFO - Polling stopped for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-15 04:41:18,518 - aiogram.dispatcher - INFO - Polling stopped
+2026-03-15 04:41:22,398 - __main__ - INFO - Bot started!
+2026-03-15 04:41:22,399 - aiogram.dispatcher - INFO - Start polling
+2026-03-15 04:41:22,533 - aiogram.dispatcher - INFO - Run polling for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-15 04:41:28,844 - aiogram.event - INFO - Update id=468475917 is handled. Duration 152 ms by bot id=7529222837
+2026-03-15 04:41:34,778 - aiogram.event - INFO - Update id=468475918 is handled. Duration 59 ms by bot id=7529222837
+2026-03-15 04:41:36,166 - aiogram.event - INFO - Update id=468475919 is handled. Duration 127 ms by bot id=7529222837
+2026-03-15 04:41:39,018 - aiogram.event - INFO - Update id=468475920 is handled. Duration 98 ms by bot id=7529222837
+2026-03-15 04:42:20,423 - aiogram.dispatcher - WARNING - Received SIGTERM signal
+2026-03-15 04:42:20,424 - aiogram.dispatcher - INFO - Polling stopped for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-15 04:42:20,426 - aiogram.dispatcher - INFO - Polling stopped
+2026-03-15 04:42:24,104 - __main__ - INFO - Bot started!
+2026-03-15 04:42:24,104 - aiogram.dispatcher - INFO - Start polling
+2026-03-15 04:42:24,254 - aiogram.dispatcher - INFO - Run polling for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-15 04:42:34,670 - aiogram.event - INFO - Update id=468475921 is handled. Duration 149 ms by bot id=7529222837
+2026-03-15 04:42:36,507 - aiogram.event - INFO - Update id=468475922 is handled. Duration 89 ms by bot id=7529222837
+2026-03-15 04:42:38,149 - aiogram.event - INFO - Update id=468475923 is handled. Duration 143 ms by bot id=7529222837
+2026-03-15 04:42:40,922 - aiogram.event - INFO - Update id=468475924 is not handled. Duration 7 ms by bot id=7529222837
+2026-03-15 04:42:40,922 - aiogram.event - ERROR - Cause exception while process update id=468475924 by bot id=7529222837
+TypeError: FreeKassaPayment.create_payment_url() got an unexpected keyword argument 'description'
+Traceback (most recent call last):
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/middlewares/error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/middlewares/user_context.py", line 27, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/fsm/middleware.py", line 41, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 128, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 123, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 156, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 128, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 123, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 148, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/handlers/purchase.py", line 91, in process_payment_selection
+    payment_url = freekassa.create_payment_url(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: FreeKassaPayment.create_payment_url() got an unexpected keyword argument 'description'
+2026-03-15 04:45:24,197 - aiogram.dispatcher - WARNING - Received SIGTERM signal
+2026-03-15 04:45:24,198 - aiogram.dispatcher - INFO - Polling stopped for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-15 04:45:24,198 - aiogram.dispatcher - INFO - Polling stopped
+2026-03-15 04:45:28,052 - __main__ - INFO - Bot started!
+2026-03-15 04:45:28,053 - aiogram.dispatcher - INFO - Start polling
+2026-03-15 04:45:28,194 - aiogram.dispatcher - INFO - Run polling for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-15 04:45:40,048 - aiogram.event - INFO - Update id=468475925 is handled. Duration 184 ms by bot id=7529222837
+2026-03-15 04:45:41,024 - aiogram.event - INFO - Update id=468475926 is handled. Duration 59 ms by bot id=7529222837
+2026-03-15 04:45:43,310 - aiogram.event - INFO - Update id=468475927 is handled. Duration 56 ms by bot id=7529222837
+2026-03-15 04:45:44,986 - aiogram.event - INFO - Update id=468475928 is handled. Duration 122 ms by bot id=7529222837
+2026-03-15 04:45:46,883 - aiogram.event - INFO - Update id=468475929 is not handled. Duration 7 ms by bot id=7529222837
+2026-03-15 04:45:46,883 - aiogram.event - ERROR - Cause exception while process update id=468475929 by bot id=7529222837
+TypeError: FreeKassaPayment.create_payment_url() got an unexpected keyword argument 'description'
+Traceback (most recent call last):
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/middlewares/error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/middlewares/user_context.py", line 27, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/fsm/middleware.py", line 41, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 128, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 123, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 156, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 128, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 123, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 148, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/venv/lib/python3.12/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/opt/vpn_bot/handlers/purchase.py", line 91, in process_payment_selection
+    payment_url = freekassa.create_payment_url(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: FreeKassaPayment.create_payment_url() got an unexpected keyword argument 'description'
+2026-03-15 04:48:22,205 - aiogram.event - INFO - Update id=468475930 is not handled. Duration 2 ms by bot id=7529222837
+2026-03-15 04:56:04,704 - aiogram.dispatcher - WARNING - Received SIGTERM signal
+2026-03-15 04:56:04,707 - aiogram.dispatcher - INFO - Polling stopped for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-15 04:56:04,707 - aiogram.dispatcher - INFO - Polling stopped
+2026-03-15 04:56:08,586 - __main__ - INFO - Bot started!
+2026-03-15 04:56:08,587 - aiogram.dispatcher - INFO - Start polling
+2026-03-15 04:56:08,729 - aiogram.dispatcher - INFO - Run polling for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-15 05:03:12,522 - aiogram.dispatcher - WARNING - Received SIGTERM signal
+2026-03-15 05:03:12,524 - aiogram.dispatcher - INFO - Polling stopped for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-15 05:03:12,524 - aiogram.dispatcher - INFO - Polling stopped
+2026-03-15 05:03:16,443 - __main__ - INFO - Bot started!
+2026-03-15 05:03:16,444 - aiogram.dispatcher - INFO - Start polling
+2026-03-15 05:03:16,589 - aiogram.dispatcher - INFO - Run polling for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-15 05:04:03,823 - aiogram.event - INFO - Update id=468475931 is handled. Duration 155 ms by bot id=7529222837
+2026-03-15 05:04:05,341 - aiogram.event - INFO - Update id=468475932 is handled. Duration 55 ms by bot id=7529222837
+2026-03-15 05:04:07,627 - aiogram.event - INFO - Update id=468475933 is handled. Duration 55 ms by bot id=7529222837
+2026-03-15 05:04:11,514 - aiogram.event - INFO - Update id=468475934 is handled. Duration 122 ms by bot id=7529222837
+2026-03-15 05:04:15,719 - aiogram.event - INFO - Update id=468475935 is handled. Duration 113 ms by bot id=7529222837
+2026-03-15 05:24:30,606 - aiogram.event - INFO - Update id=468475936 is handled. Duration 196 ms by bot id=7529222837
+2026-03-15 05:24:32,287 - aiogram.event - INFO - Update id=468475937 is handled. Duration 109 ms by bot id=7529222837
+2026-03-15 05:24:34,577 - aiogram.event - INFO - Update id=468475938 is handled. Duration 104 ms by bot id=7529222837
+2026-03-15 05:45:47,155 - aiogram.dispatcher - WARNING - Received SIGTERM signal
+2026-03-15 05:45:47,158 - aiogram.dispatcher - INFO - Polling stopped for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-15 05:45:47,158 - aiogram.dispatcher - INFO - Polling stopped
+2026-03-15 05:45:51,335 - __main__ - INFO - Bot started!
+2026-03-15 05:45:51,336 - aiogram.dispatcher - INFO - Start polling
+2026-03-15 05:45:51,480 - aiogram.dispatcher - INFO - Run polling for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-15 05:48:18,131 - aiogram.dispatcher - WARNING - Received SIGTERM signal
+2026-03-15 05:48:18,133 - aiogram.dispatcher - INFO - Polling stopped for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-15 05:48:18,133 - aiogram.dispatcher - INFO - Polling stopped
+2026-03-15 05:48:22,098 - __main__ - INFO - Bot started!
+2026-03-15 05:48:22,099 - aiogram.dispatcher - INFO - Start polling
+2026-03-15 05:48:22,241 - aiogram.dispatcher - INFO - Run polling for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-15 07:06:39,467 - aiogram.dispatcher - WARNING - Received SIGTERM signal
+2026-03-15 07:06:39,474 - aiogram.dispatcher - INFO - Polling stopped for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-15 07:06:39,474 - aiogram.dispatcher - INFO - Polling stopped
+2026-03-15 07:06:45,283 - __main__ - INFO - Bot started!
+2026-03-15 07:06:45,283 - aiogram.dispatcher - INFO - Start polling
+2026-03-15 07:06:45,399 - aiogram.dispatcher - INFO - Run polling for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-15 07:06:56,246 - aiogram.event - INFO - Update id=468475939 is handled. Duration 501 ms by bot id=7529222837
+2026-03-15 07:06:59,504 - aiogram.event - INFO - Update id=468475940 is handled. Duration 662 ms by bot id=7529222837
+2026-03-15 07:07:10,046 - aiogram.event - INFO - Update id=468475941 is handled. Duration 162 ms by bot id=7529222837
+2026-03-15 07:07:16,329 - aiogram.event - INFO - Update id=468475942 is handled. Duration 131 ms by bot id=7529222837
+2026-03-15 07:07:49,778 - aiogram.event - INFO - Update id=468475943 is handled. Duration 168 ms by bot id=7529222837
+2026-03-15 07:07:59,017 - aiogram.event - INFO - Update id=468475944 is handled. Duration 97 ms by bot id=7529222837
+2026-03-15 07:08:03,891 - aiogram.event - INFO - Update id=468475945 is handled. Duration 189 ms by bot id=7529222837
+2026-03-15 07:46:30,339 - aiogram.dispatcher - WARNING - Received SIGTERM signal
+2026-03-15 07:46:30,341 - aiogram.dispatcher - INFO - Polling stopped for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-15 07:46:30,341 - aiogram.dispatcher - INFO - Polling stopped
+2026-03-15 07:46:34,376 - __main__ - INFO - Bot started!
+2026-03-15 07:46:34,377 - aiogram.dispatcher - INFO - Start polling
+2026-03-15 07:46:34,595 - aiogram.dispatcher - INFO - Run polling for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-15 07:48:51,293 - aiogram.event - INFO - Update id=468475946 is handled. Duration 185 ms by bot id=7529222837
+2026-03-15 07:48:52,673 - aiogram.event - INFO - Update id=468475947 is handled. Duration 52 ms by bot id=7529222837
+2026-03-15 07:48:54,614 - aiogram.event - INFO - Update id=468475948 is handled. Duration 122 ms by bot id=7529222837
+2026-03-15 07:48:58,033 - aiogram.event - INFO - Update id=468475949 is handled. Duration 102 ms by bot id=7529222837
+2026-03-15 07:50:07,202 - aiogram.event - INFO - Update id=468475950 is handled. Duration 184 ms by bot id=7529222837
+2026-03-15 07:50:09,045 - aiogram.event - INFO - Update id=468475951 is handled. Duration 57 ms by bot id=7529222837
+2026-03-15 07:50:11,115 - aiogram.event - INFO - Update id=468475952 is handled. Duration 94 ms by bot id=7529222837
+2026-03-15 07:50:29,158 - aiogram.event - INFO - Update id=468475953 is handled. Duration 267 ms by bot id=7529222837
+2026-03-15 07:50:48,761 - aiogram.event - INFO - Update id=468475954 is handled. Duration 126 ms by bot id=7529222837
+2026-03-15 07:50:50,941 - aiogram.event - INFO - Update id=468475955 is handled. Duration 89 ms by bot id=7529222837
+2026-03-15 07:50:52,968 - aiogram.event - INFO - Update id=468475956 is handled. Duration 138 ms by bot id=7529222837
+2026-03-15 07:56:11,783 - aiogram.event - INFO - Update id=468475957 is handled. Duration 191 ms by bot id=7529222837
+2026-03-15 07:57:05,976 - aiogram.event - INFO - Update id=468475958 is handled. Duration 128 ms by bot id=7529222837
+2026-03-15 07:58:17,266 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [Errno 104] Connection reset by peer
+2026-03-15 07:58:17,267 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7529222837)
+2026-03-15 07:58:21,613 - aiogram.dispatcher - INFO - Connection established (tryings = 1, bot id = 7529222837)
+2026-03-15 07:58:21,887 - aiogram.event - INFO - Update id=468475959 is handled. Duration 272 ms by bot id=7529222837
+2026-03-15 07:58:25,619 - aiogram.event - INFO - Update id=468475960 is handled. Duration 63 ms by bot id=7529222837
+2026-03-15 07:58:50,631 - aiogram.event - INFO - Update id=468475961 is handled. Duration 122 ms by bot id=7529222837
+2026-03-15 07:58:53,656 - aiogram.event - INFO - Update id=468475962 is handled. Duration 56 ms by bot id=7529222837
+2026-03-15 07:58:57,951 - aiogram.event - INFO - Update id=468475963 is handled. Duration 57 ms by bot id=7529222837
+2026-03-15 07:58:59,688 - aiogram.event - INFO - Update id=468475964 is handled. Duration 95 ms by bot id=7529222837
+2026-03-15 07:59:01,965 - aiogram.event - INFO - Update id=468475965 is handled. Duration 108 ms by bot id=7529222837
+2026-03-15 08:01:03,504 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [Errno 104] Connection reset by peer
+2026-03-15 08:01:03,504 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7529222837)
+2026-03-15 08:01:15,649 - aiogram.dispatcher - INFO - Connection established (tryings = 1, bot id = 7529222837)
+2026-03-15 08:01:23,982 - aiogram.dispatcher - WARNING - Received SIGTERM signal
+2026-03-15 08:01:23,983 - aiogram.dispatcher - INFO - Polling stopped for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-15 08:01:23,984 - aiogram.dispatcher - INFO - Polling stopped
+2026-03-15 08:01:28,250 - __main__ - INFO - Bot started!
+2026-03-15 08:01:28,251 - aiogram.dispatcher - INFO - Start polling
+2026-03-15 08:01:28,363 - aiogram.dispatcher - INFO - Run polling for bot @SpichText_bot id=7529222837 - 'TT_bot'
+2026-03-15 08:01:40,374 - aiogram.event - INFO - Update id=468475966 is handled. Duration 270 ms by bot id=7529222837
+2026-03-15 08:17:27,137 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [Errno 104] Connection reset by peer
+2026-03-15 08:17:27,138 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7529222837)
+2026-03-15 08:17:38,314 - aiogram.dispatcher - INFO - Connection established (tryings = 1, bot id = 7529222837)
