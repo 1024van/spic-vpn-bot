@@ -21,7 +21,7 @@ class PurchaseStates(StatesGroup):
     waiting_payment = State()
 
 
-@router.message(F.text == "🛒 Купить VPN")
+@router.message(F.text == "🛒 Купить SPIC")
 async def buy_vpn(message: Message):
     await message.answer(
         "📋 <b>Выберите тариф SPIC:</b>\n\n"
@@ -97,7 +97,7 @@ async def process_payment_selection(callback: CallbackQuery, state: FSMContext, 
             f"plan={data['plan_code']}, price={data['price']}, order_id={order_id}"
         )
 
-        # Создаём URL для оплаты (новая сигнатура: amount, order_id)
+        # Создаём URL для оплаты (amount, order_id)
         payment_url = freekassa.create_payment_url(
             amount=data["price"],
             order_id=order_id,
@@ -159,7 +159,7 @@ async def my_subscriptions(message: Message):
     if not subs:
         await message.answer(
             "📱 <b>У вас нет активных подписок</b>\n\n"
-            "Нажмите '🛒 Купить VPN' чтобы приобрести доступ.",
+            "Нажмите '🛒 Купить SPIC' чтобы приобрести доступ.",
             reply_markup=main_menu(user_id in ADMIN_IDS),
         )
         return
@@ -226,6 +226,7 @@ async def deliver_subscription(bot: Bot, user_id: int, plan_code: str):
 
         # Создаем пользователя в TrustTunnel
         config = trusttunnel.create_user(user_id)
+        # ожидаем, что в config есть username, password, qr_code, deeplink и т.п.
 
         # Сохраняем в БД
         expires_at = db.add_subscription(
@@ -236,7 +237,48 @@ async def deliver_subscription(bot: Bot, user_id: int, plan_code: str):
             config,
         )
 
-        # Отправляем QR-код
+        # Основное сообщение с данными доступа
+        text = f"""✅ <b>Поздравляем! Доступ готов!</b>
+
+📍 Локация: 🇫🇷 FRA (Франция)
+
+📱 <b>Мобильные устройства (iOS / Android):</b>
+🍏 App Store: https://apps.apple.com/us/app/trusttunnel/id6755807890
+🤖 Google Play: https://play.google.com/store/apps/details?id=com.adguard.trusttunnel
+━━━━━━━━━━━━━━━
+📝 <b>Скопируйте эти данные в приложение:</b>
+
+🏷 Server name: <code>SPIC_FIN</code>
+🏘 IP address... : <code>185.236.24.249:443</code>
+🌐 Domain name...: <code>stop2virus.xyz</code>
+👤 Username: <code>{config['username']}</code>
+🔑 Password: <code>{config.get('password', '******')}</code>
+⚙️ Protocol: QUIC
+📂 Routing profile: Default profile
+
+⏳ Подписка активна до: <b>{expires_at.strftime('%d.%m.%Y')}</b>
+
+🛡 DNS server addresses (нажми для копирования сразу обоих):
+<code>https://dns.adguard-dns.com/dns-query</code>
+<code>quic://dns.adguard-dns.com</code>
+━━━━━━━━━━━━━━━
+🖥  <b>Для пользователей ПК (Windows/Mac):</b>
+Используйте прикреплённый файл .toml или QR/ссылку из сообщения ниже.
+📖 Инструкции: WIN https://trustunnel.ru/ttwinguide/ | MAC https://trustunnel.ru/ttmacguide/
+
+📄 Terms: https://trustunnel.ru/terms/
+🔒 Privacy: https://trustunnel.ru/privacy/
+💸 Refund: https://trustunnel.ru/refund/
+👨‍💻 Поддержка: https://t.me/supTTbot
+"""
+
+        await bot.send_message(
+            user_id,
+            text,
+            parse_mode="HTML",
+        )
+
+        # Отправляем QR-код (доп. быстрый способ подключения)
         qr_bytes = base64.b64decode(config["qr_code"])
         photo = BufferedInputFile(qr_bytes, filename="qr_code.png")
 
@@ -244,30 +286,23 @@ async def deliver_subscription(bot: Bot, user_id: int, plan_code: str):
             user_id,
             photo=photo,
             caption=(
-                f"🎉 <b>Ваша подписка SPIC активирована!</b>\n\n"
-                f"📍 Сервер: stop2virus.xyz\n"
-                f"⏳ Активна до: {expires_at.strftime('%d.%m.%Y')}\n"
-                f"👤 Логин: <code>{config['username']}</code>\n\n"
-                f"📱 <b>Быстрая настройка:</b>\n"
-                f"1. Установите приложение TrustTunnel\n"
-                f"2. Отсканируйте QR-код выше\n"
-                f"3. Готово!\n\n"
-                f"🔗 <b>Или используйте ссылку:</b>\n"
+                "📱 Можете просто отсканировать этот QR-код в приложении TrustTunnel.\n\n"
+                "🔗 Или используйте ссылку:\n"
                 f"<code>{config['deeplink']}</code>"
             ),
+            parse_mode="HTML",
         )
 
-        # Отправляем инструкцию
+        # Финальное сообщение с меню
         await bot.send_message(
             user_id,
             (
-                "📥 <b>Скачать приложение:</b>\n\n"
-                "• <b>iOS:</b> (скоро в App Store)\n"
-                "• <b>Android:</b> (скоро в Google Play)\n"
-                "• <b>Windows/macOS/Linux:</b>\n"
-                "https://github.com/TrustTunnel/TrustTunnelClient\n\n"
+                "📥 <b>Если приложение ещё не установлено:</b>\n\n"
+                "• <b>iOS:</b> TrustTunnel в App Store\n"
+                "• <b>Android:</b> TrustTunnel в Google Play\n\n"
                 "❓ По вопросам обращайтесь в поддержку."
             ),
+            parse_mode="HTML",
             reply_markup=main_menu(user_id in ADMIN_IDS),
         )
 
@@ -275,7 +310,8 @@ async def deliver_subscription(bot: Bot, user_id: int, plan_code: str):
         await bot.send_message(
             user_id,
             f"❌ <b>Ошибка создания конфигурации:</b>\n{str(e)}\n\n"
-            f"Обратитесь в поддержку."
+            f"Обратитесь в поддержку.",
+            parse_mode="HTML",
         )
 
         # Уведомляем админов
@@ -284,7 +320,8 @@ async def deliver_subscription(bot: Bot, user_id: int, plan_code: str):
                 admin_id,
                 f"🚨 <b>Ошибка выдачи подписки!</b>\n"
                 f"User ID: {user_id}\n"
-                f"Error: {str(e)}"
+                f"Error: {str(e)}",
+                parse_mode="HTML",
             )
 
 
