@@ -228,3 +228,5 @@ payment_secrets.py
 temp_qr/
 *.png.tmp
 EOF
+__pycache__/
+*.log
