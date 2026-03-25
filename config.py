@@ -23,33 +23,33 @@ CREDENTIALS_TOML = os.path.join(TRUSTTUNNEL_ENDPOINT_PATH, "credentials.toml")
 # Цены (в рублях) - обновлены по сайту stop2virus.xyz
 PRICES = {
     "1_month": {
-        "price": 299, 
-        "days": 30, 
+        "price": 299,
+        "days": 30,
         "label": "1 месяц — 299 ₽",
         "savings": None,
-        "freekassa_id": "1"
+        "freekassa_id": "1",
     },
     "3_months": {
-        "price": 599, 
-        "days": 90, 
+        "price": 599,
+        "days": 90,
         "label": "3 месяца — 599 ₽ (~200 ₽/мес)",
         "savings": "Экономия 298 ₽",
-        "freekassa_id": "2"
+        "freekassa_id": "2",
     },
     "6_months": {
-        "price": 899, 
-        "days": 180, 
-        "label": "6 месяцев — 899 ₽ (~150 ₽/мес)", 
+        "price": 899,
+        "days": 180,
+        "label": "6 месяцев — 899 ₽ (~150 ₽/мес)",
         "savings": "Экономия 895 ₽",
-        "freekassa_id": "3"
+        "freekassa_id": "3",
     },
     "12_months": {
-        "price": 1199, 
-        "days": 365, 
+        "price": 1199,
+        "days": 365,
         "label": "12 месяцев — 1199 ₽ (~100 ₽/мес)",
         "savings": "Экономия 2389 ₽",
-        "freekassa_id": "4"
-    }
+        "freekassa_id": "4",
+    },
 }
 
 # FreeKassa настройки (основной платёжный метод)
@@ -66,10 +66,17 @@ YOOKASSA_SECRET_KEY = os.getenv("YOOKASSA_SECRET_KEY", "")
 # ЮMoney (полностью отключена, но можно включить изменив код)
 YMONEY_ENABLED = False
 
+# CloudPayments
+CLOUDPAYMENTS_PUBLIC_ID = os.getenv("CLOUDPAYMENTS_PUBLIC_ID")
+CLOUDPAYMENTS_API_SECRET = os.getenv("CLOUDPAYMENTS_API_SECRET")
+
+# Базовый URL сайта (для формирования ссылок на оплату)
+SITE_BASE_URL = os.getenv("SITE_BASE_URL", "https://stop2virus.xyz")
+
 # Сервер (у нас пока один)
 VPN_SERVER = {
     "code": "MAIN",
     "name": "🌍 Основной сервер",
     "domain": TRUSTTUNNEL_DOMAIN,
-    "location": "EU"
+    "location": "EU",
 }

@@ -3,102 +3,25 @@ from aiogram.types import Message, CallbackQuery, BufferedInputFile
 from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import State, StatesGroup
+
 from database import db
-from keyboards import subscription_plans, payment_methods, main_menu, freekassa_payment_url, tinkoff_payment_url
-from config import PRICES, ADMIN_IDS, FREEKASSA_ENABLED
+from keyboards import subscription_plans, payment_methods, main_menu, freekassa_payment_url
+from config import PRICES, ADMIN_IDS, FREEKASSA_ENABLED, SITE_BASE_URL
 from utils.trusttunnel import trusttunnel
 from utils.payments import freekassa
+
+from cloudpayments_client import get_public_id  # пока не используем, но пригодится
+
 import base64
 from datetime import datetime
 import os
-import hashlib
-import requests
 
 router = Router()
-
 
 class PurchaseStates(StatesGroup):
     selecting_plan = State()
     confirming_payment = State()
     waiting_payment = State()
-    waiting_payment_tinkoff = State()
-
-
-# ==== Настройки Т‑Банка (берём из .env через os.getenv) ====
-
-TINKOFF_TERMINAL_KEY = os.getenv("TINKOFF_TERMINAL_KEY", "1773811358860DEMO")
-TINKOFF_PASSWORD = os.getenv("TINKOFF_PASSWORD", "xkP0*S!twUIInLq0")
-TINKOFF_API_URL = os.getenv("TINKOFF_API_URL", "https://securepay.tinkoff.ru/v2")
-
-TINKOFF_SUCCESS_URL = os.getenv("TINKOFF_SUCCESS_URL", "https://stop2virus.xyz/payment-success")
-TINKOFF_FAIL_URL = os.getenv("TINKOFF_FAIL_URL", "https://stop2virus.xyz/payment-fail")
-
-
-def _tinkoff_generate_token(params: dict) -> str:
-    """
-    Генерация Token по доке T‑банка:
-    - берём только корневые параметры (без вложенных объектов),
-    - добавляем Password,
-    - сортируем по ключу,
-    - конкатенируем значения,
-    - SHA256.
-    """
-    flat = {k: v for k, v in params.items() if k not in ("Token", "DATA", "Receipt") and v is not None}
-    flat["Password"] = TINKOFF_PASSWORD
-    items = sorted(flat.items(), key=lambda x: x[0])
-    data = "".join(str(v) for _, v in items)
-    return hashlib.sha256(data.encode("utf-8")).hexdigest()
-
-
-def tinkoff_create_payment(amount_rub: int, order_id: str, description: str, customer_email: str | None = None):
-    amount_kopecks = amount_rub * 100
-
-    payload = {
-        "TerminalKey": TINKOFF_TERMINAL_KEY,
-        "Amount": amount_kopecks,
-        "OrderId": order_id,
-        "Description": description,
-    }
-
-    if customer_email:
-        payload["CustomerKey"] = customer_email
-
-    # При необходимости можно вернуть SuccessURL/FailURL:
-    # payload["SuccessURL"] = TINKOFF_SUCCESS_URL
-    # payload["FailURL"] = TINKOFF_FAIL_URL
-
-    payload["Token"] = _tinkoff_generate_token(payload)
-
-    resp = requests.post(f"{TINKOFF_API_URL}/Init", json=payload, timeout=10)
-    resp.raise_for_status()
-    data = resp.json()
-
-    if not data.get("Success"):
-        raise RuntimeError(f"Tinkoff Init error: {data}")
-
-    payment_id = data.get("PaymentId") or data.get("paymentId")
-    payment_url = data.get("PaymentURL") or data.get("paymentUrl") or data.get("PaymentUrl")
-
-    if not payment_url:
-        raise RuntimeError(f"No PaymentURL in response: {data}")
-
-    return payment_id, payment_url
-
-
-def tinkoff_get_state(payment_id: str):
-    """
-    Получить статус платежа через GetState.
-    """
-    payload = {
-        "TerminalKey": TINKOFF_TERMINAL_KEY,
-        "PaymentId": payment_id,
-    }
-    payload["Token"] = _tinkoff_generate_token(payload)
-
-    resp = requests.post(f"{TINKOFF_API_URL}/GetState", json=payload, timeout=10)
-    resp.raise_for_status()
-    return resp.json()
-
 
 # ==============================
 #        Хендлеры покупок
@@ -150,11 +73,13 @@ async def process_plan_selection(callback: CallbackQuery, state: FSMContext):
 
 
 @router.callback_query(PurchaseStates.confirming_payment, F.data.startswith("pay_"))
+@router.callback_query(PurchaseStates.confirming_payment, F.data.startswith("pay_"))
 async def process_payment_selection(callback: CallbackQuery, state: FSMContext, bot: Bot):
     payment_method = callback.data.replace("pay_", "")
     data = await state.get_data()
     user_id = callback.from_user.id
 
+    # Ручная оплата
     if payment_method == "manual":
         await callback.message.edit_text(
             "💬 <b>Ручная оплата</b>\n\n"
@@ -163,43 +88,37 @@ async def process_payment_selection(callback: CallbackQuery, state: FSMContext, 
             f"Укажите сумму: <b>{data['price']}₽</b>\n"
             f"Тариф: {data['label']}\n\n"
             f"После оплаты админ выдаст подписку командой:\n"
-            f"<code>/confirm {user_id} {data['plan_code']}</code>"
+            f"<code>/confirm {data['order_id'] if 'order_id' in data else 'ORDER_ID'}</code>",
+            parse_mode="HTML",
         )
         await state.clear()
+        await callback.answer()
         return
 
-    # Новый метод: Т‑Банк (карта)
-    if payment_method == "tinkoff":
-        order_id = f"SPIC_T_{user_id}_{int(datetime.now().timestamp())}"
+    # Новый метод: CloudPayments (карта / СБП)
+    if payment_method == "cp":
+        # генерируем order_id
+        order_id = f"SPIC_CP_{user_id}_{int(datetime.now().timestamp())}"
 
+        # сохраняем платёж в БД
         db.add_payment(user_id, data["price"], order_id, data["plan_code"])
 
-        try:
-            payment_id, payment_url = tinkoff_create_payment(
-                amount_rub=data["price"],
-                order_id=order_id,
-                description=f"SPIC {data['label']}",
-                customer_email=None,
-            )
-        except Exception as e:
-            await callback.message.edit_text(
-                f"❌ Ошибка при создании платежа T‑Банк:\n<code>{e}</code>"
-            )
-            await state.clear()
-            await callback.answer()
-            return
+        price = data["price"]
+        pay_url = f"{SITE_BASE_URL}/pay/cloudpayments?order_id={order_id}&amount={price}&uid={user_id}"
 
         await callback.message.edit_text(
-            f"💳 <b>Оплата картой (Т‑Банк)</b>\n\n"
+            "💳 <b>Оплата картой / СБП (CloudPayments)</b>\n\n"
             f"Сумма: <b>{data['price']}₽</b>\n"
             f"Номер заказа: <code>{order_id}</code>\n\n"
-            f"Нажмите кнопку ниже для перехода к оплате.\n"
-            f"После оплаты нажмите «Я оплатил».",
-            reply_markup=tinkoff_payment_url(payment_url),
+            "Нажмите кнопку ниже для перехода к оплате.\n"
+            "После успешной оплаты подписка будет выдана автоматически "
+            "(или админ подтвердит командой /confirm).",
+            reply_markup=freekassa_payment_url(pay_url),  # используем ту же кнопку "Перейти к оплате"
+            parse_mode="HTML",
         )
 
-        await state.set_state(PurchaseStates.waiting_payment_tinkoff)
-        await state.update_data(order_id=order_id, payment_id=payment_id)
+        # Можно сохранить order_id в стейт, если пригодится
+        await state.update_data(order_id=order_id)
         await callback.answer()
         return
 
@@ -228,6 +147,7 @@ async def process_payment_selection(callback: CallbackQuery, state: FSMContext, 
             f"Нажмите кнопку ниже для перехода к оплате.\n"
             f"После оплаты нажмите «Я оплатил».",
             reply_markup=freekassa_payment_url(payment_url),
+            parse_mode="HTML",
         )
 
         await state.set_state(PurchaseStates.waiting_payment)
@@ -263,75 +183,6 @@ async def check_payment_status(callback: CallbackQuery, state: FSMContext, bot: 
             f"<code>/confirm {data.get('order_id', 'N/A')}</code>",
             disable_web_page_preview=True,
         )
-
-    await state.clear()
-    await callback.answer()
-
-
-@router.callback_query(PurchaseStates.waiting_payment_tinkoff, F.data == "check_payment_tinkoff")
-async def check_payment_status_tinkoff(callback: CallbackQuery, state: FSMContext, bot: Bot):
-    """
-    Автоматическая проверка платежа T‑Банк через GetState.
-    """
-    data = await state.get_data()
-    user_id = callback.from_user.id
-    order_id = data.get("order_id")
-    payment_id = data.get("payment_id")
-
-    try:
-        status_data = tinkoff_get_state(payment_id)
-    except Exception as e:
-        await callback.message.edit_text(
-            "❌ Ошибка при проверке платежа T‑Банк.\n"
-            f"<code>{e}</code>\n\n"
-            "Попробуйте ещё раз через минуту."
-        )
-        await callback.answer()
-        return
-
-    if not status_data.get("Success"):
-        await callback.message.edit_text(
-            "❌ Платёж ещё не подтверждён банком.\n"
-            "Если вы только что оплатили, подождите 1–2 минуты и нажмите «Я оплатил» ещё раз."
-        )
-        await callback.answer()
-        return
-
-    status = status_data.get("Status")
-    if status != "CONFIRMED":
-        await callback.message.edit_text(
-            f"⏳ Статус платежа: <b>{status}</b>.\n\n"
-            "Если вы уже оплатили, подождите немного и повторите проверку."
-        )
-        await callback.answer()
-        return
-
-    payment = db.get_payment(order_id)
-    if not payment:
-        await callback.message.edit_text(
-            "⚠️ Платёж найден в банке, но не найден в базе. Обратитесь в поддержку."
-        )
-        await callback.answer()
-        return
-
-    if payment["status"] == "completed":
-        await callback.message.edit_text(
-            "✅ Этот платёж уже был подтверждён, подписка выдана ранее."
-        )
-        await callback.answer()
-        await state.clear()
-        return
-
-    db.confirm_payment(order_id)
-
-    await callback.message.edit_text("✅ Платёж подтверждён. Формируем доступ к SPIC...")
-    await deliver_subscription(
-        bot,
-        payment["user_id"],
-        payment["plan_code"],
-        payment_id=order_id,
-        amount=payment["amount"],
-    )
 
     await state.clear()
     await callback.answer()
